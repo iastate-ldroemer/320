@@ -1,0 +1,17 @@
+<script>
+	shift = parseInt(prompt("Enter shift"))
+	text = prompt("Enter text")
+	encrypted_text = ""
+	for (i=0; i<text.length; i++) {
+		letters = text.substr(i,1)
+		code = letters.charCodeAt()
+		if ((code >= 65) && (code <= 90)) {
+			encrypted_text += String.fromCharCode(((code - 65 + shift) % 26) + 65)
+		} else if ((code >= 97) && (code <= 122)) {
+			encrypted_text += String.fromCharCode(((code - 97 + shift) % 26) + 97)
+		} else {
+			encrypted_text += String.fromCharCode(code)
+		}
+	}
+	alert(encrypted_text)
+</script>
