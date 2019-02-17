@@ -1,0 +1,41 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  var word_array = x.split(" ")
+  var vowel_array = ["a", "e", "i", "o", "u"]
+  for (var j = 0; j < word_array.length; j++) {
+    if(word_array[word_array.length - 1] === 'a' || word_array[word_array.length - 1] === 'an' ) {
+      console.log("sentence ended with a or an, not grammatical")
+      break;
+    }
+    if(word_array[j] === 'a') {
+      var noun = word_array[j+1]
+      for (var i = 0; i < vowel_array.length; i++) {
+        if (noun[0] === vowel_array[i]) {
+          word_array[j] += 'n'
+        }
+      }
+  }
+  if(word_array[j] === 'an') {
+    var noun = word_array[j+1]
+    var flag = false
+    for (var i = 0; i < vowel_array.length; i++) {
+      if(noun[0] === voew_array[i]){
+        flag = true;
+      }
+    }
+    if(!flag){
+      word_array = j.split("")[0]
+    }
+  }
+  y = x.toLowerCase()
+  document.getElementById("output").value = y
+}
+}
+
+</script>
