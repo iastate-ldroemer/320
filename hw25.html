@@ -1,0 +1,39 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script src="https://linguatorium.com/tools/static/320/english_words.js"></script>
+  
+<script src="https://linguatorium.com/tools/static/320/editing_distance.js">
+
+function process() {
+  x = document.getElementById("input").value
+  words = x.split(" ")
+  // words contains array of all words split by spaces
+  y = "Here are the words that you have misspelled:"
+  for (i=0; i<words.length; i++) {
+    current_word = words[i]
+    word_misspelled = true
+    for (j=0; j < english_words.length; j++) { //compare curent word to every single english word
+      if (english_words[j] === current_word) {
+        word_misspelled = false //word exists in english
+      }
+    }
+    if (word_misspelled) { //if word wasnt in english then
+    //TODO: compare misspelled word to every english word and find word with lowest calc dist
+    var min_count = 50
+    var min_word = ""
+    for (j=0; j < english_words.length; j++) {
+      res = editing_distance(english_word[j], current_word)
+      if(res < min_count){
+        min_count = res
+        min_word = english_word[j]
+      }
+    }
+      y = y + "\nYou have misspelled word "+current_word + "did you mean " + min_word
+    }
+  }
+  document.getElementById("output").value = y
+}
+
+</script>
