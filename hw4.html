@@ -1,0 +1,32 @@
+ <script>
+ items = [
+  ]
+
+  question_bank = {
+  in: ["The toy is ___ the box.", "I met him ___ September.", "___ the beginning was the word.", "The teacher was ___ the classroom", "The student was ___ com sci 230"],
+  with: ["Sorry, I don't agree ___ you.", "We belong __ each other.", "I'm bored ___ my job", "I'm dissapointed ___ the food", "Are you familiar ___ Korean food?"]
+}
+learner_model = { in: 0, on: -10, by: 0 }
+
+prepositions = ['in', 'with']
+
+while (true) {
+  worst_known_preposition = prepositions[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=1; i<prepositions.length; i++) {
+    if (learner_model[prepositions[i]] < smallest_score) {
+      smallest_score = learner_model[prepositions[i]]
+      worst_known_preposition = prepositions[i]
+    }
+  }
+  var rand = Math.rand(4);
+  response = prompt(question_bank[worst_known_preposition[rand]]);
+  if(response === worst_known_preposition){
+	alert("Correct!")
+  }else{
+	alert(question_bank[worst_known_preposition[rand]].replace("___", worst_known_preposition)
+  }
+}
+
+
+</script>
