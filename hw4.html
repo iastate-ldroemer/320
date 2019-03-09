@@ -1,0 +1,34 @@
+ <script>
+
+  PrepQuestions = {
+  in: ["The toy is ___ the box.", "I met him ___ September.", "___ the beginning was the word.", "The teacher was ___ the classroom", "The student was ___ com sci 230"],
+  with: ["Sorry, I don't agree ___ you.", "We belong __ each other.", "I'm bored ___ my job", "I'm dissapointed ___ the food", "Are you familiar ___ Korean food?"],
+  of: ["He accused me ___ taking the money", "I'm afraid ___ spiders", "I don't approve ___ smoking", "I was not aware ___ the problem", "We're in danger ___ missing the bus"],
+  to: ["I'm addicted ___ coca-cola", "I applied ___ the company", "The file is attached ___ this email", "Some people are very cruel ___ animals", "That name is familiar ___ me"],
+  on: ["We agree ___ most subjects", "This film is based ___ a book", "I'm trying to concentrate ___ my work", "I congratulated her ___ passing the exam", "It depends ___ the weather"]
+  }
+learner_model = { in: 0, with: 0, of: 0, to: 0, on: 0 }
+
+prepositions = ['in', 'with', 'of', 'to', 'on']
+
+while (true) {
+  worst_known_preposition = prepositions[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=1; i<prepositions.length; i++) {
+    if (learner_model[prepositions[i]] < smallest_score) {
+      smallest_score = learner_model[prepositions[i]]
+      worst_known_preposition = prepositions[i]
+    }
+  }
+  var rand = (Math.floor(Math.random() * 5) + 0)
+  response = window.prompt(PrepQuestions[worst_known_preposition[rand]]).toLowerCase();
+  if(response === worst_known_preposition){
+	alert("Correct!")
+	learner_model[worst_known_preposition] = learner_model[worst_known_preposition] + 1
+  }else{
+	alert(PrepQuestions[worst_known_preposition][rand].replace("___", worst_known_preposition))
+	learner_model[worst_known_preposition] = learner_model[worst_known_preposition] - 1
+  }
+}
+
+</script>
