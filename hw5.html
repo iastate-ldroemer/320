@@ -1,0 +1,27 @@
+<script>
+x = prompt("Enter words to be translated into Haigy Paigy")
+x = x.toLowerCase()
+    x = x.replace(/([b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z]*)([aeiouy]+)([b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z]*)([e])\b/g,"$1$2$3#")
+    x = x.replace(/([b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z]*)([aeiouy]+)([b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z]*)/g,"$1aig$2$3")
+    x = x.replace (/#/g,"e")
+    //x = x.replace(/([^aeiouy]*)([aeiouy]+)([^aeiouy]*)/g,"$1aig$2$3$4")
+    //x= x.replace(/[#]*,e)
+    
+alert(x)
+</script>
+
+<!--script>
+    
+    
+haigy = prompt("Please enter a thing")
+    //if(/[aeiou]/)
+y = haigy.replace(/[a]/gi, 'aaig');
+y = haigy.replace(/[i]/gi, 'iaig');
+y = haigy.replace(/[o]/gi, 'oaig');
+y = haigy.replace(/[u]/gi, 'uaig');
+y = haigy.replace(/[y]/gi, 'yaig');
+    
+    alert(y)
+    
+    
+</script-->
